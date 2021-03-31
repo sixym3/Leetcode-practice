@@ -1,5 +1,25 @@
-class Solution {
-    public int removeDuplicates(int[] nums) {
+
+public class arrayCourse {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public static boolean checkIfMultiplesOfTwoLinearSearch(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+        	for (int j = i+1; j < arr.length; j++ ) {
+        		if (arr[i] == arr[j] * 2) {
+        			return true;
+        		} else if (arr[i] * 2 == arr[j]) {
+        			return true;
+        		}
+        	}
+        }
+        return false;
+    }
+	
+	public int removeDuplicates(int[] nums) {
         if (nums.length == 0 || nums.length == 1) {
             return nums.length;
         }
@@ -26,4 +46,5 @@ class Solution {
             return pointer;
         }
     }
+
 }
