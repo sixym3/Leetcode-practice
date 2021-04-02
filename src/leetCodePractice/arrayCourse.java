@@ -2,11 +2,17 @@
 public class arrayCourse {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 	}
 	
-	public static boolean checkIfMultiplesOfTwoLinearSearch(int[] arr) {
+	// Generate an array given a size, display the generated array
+	public static int[] generateArray(int size) { 
+		int[] array = new int[size];
+		return array;
+	}
+	
+	// Iterate through an array and check if there exist an element that is two times another element
+	public static boolean checkIfMultiplesOfTwoLinearSearch(int[] arr) {  
         for (int i = 0; i < arr.length; i++) {
         	for (int j = i+1; j < arr.length; j++ ) {
         		if (arr[i] == arr[j] * 2) {
@@ -19,6 +25,7 @@ public class arrayCourse {
         return false;
     }
 	
+	// Iterate through an array and remove
 	public int removeDuplicates(int[] nums) {
         if (nums.length == 0 || nums.length == 1) {
             return nums.length;
@@ -26,7 +33,7 @@ public class arrayCourse {
         else {
             // the first element is always unique
             // keep track of a list of unique nums in the array nums
-            // using a pointer, where everything before the pointer is unqiue
+            // using a pointer, where everything before the pointer is unique
             int pointer = 1;
             // equals 1 because everything before index 1 is unique
             // for each element in array that is after index 0, check if the element exist in the 
