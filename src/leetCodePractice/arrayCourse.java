@@ -11,6 +11,31 @@ public class arrayCourse {
 		return array;
 	}
 	
+	// Checks if an array is a strictly mountain array and return true or false
+    public boolean validMountainArray(int[] arr) {
+        if (arr.length > 2) {
+            boolean inc = true;
+            if (arr[0] > arr[1]) return false;
+            for (int i = 0; i < arr.length - 1; i++) {
+                if (arr[i] == arr[i+1]) {
+                    return false;
+                }
+                if (inc) {
+                    if (arr[i] > arr[i+1]) {
+                        inc = false;
+                    }
+                } else {
+                    if (arr[i] < arr[i+1]) {
+                        return false;
+                    }
+                }
+            } return (!inc);
+        } else {
+            return false;
+        }
+    }
+
+	
 	// Iterate through an array and check if there exist an element that is two times another element
 	public static boolean checkIfMultiplesOfTwoLinearSearch(int[] arr) {  
         for (int i = 0; i < arr.length; i++) {
