@@ -1,9 +1,61 @@
+import java.util.Random;
 
 public class arrayCourse {
 
 	public static void main(String[] args) {
-
+		int[] testArr = generateIntArr(20);
+		printArr(testArr);
+		moveZeroes(testArr);
+		printArr(testArr);
 	}
+	
+	public static void moveZeroes(int[] nums) {
+		int zeros = 0;
+		for (int num:nums) {
+			if (num == 0) {
+				zeros++;
+			}
+		}
+        int i = 0;
+        int j = 0;
+        while (j < nums.length - zeros) {
+        	while (i < nums.length - 1 && nums[i] == 0) {
+        		i++;
+        	}
+        	nums[j] = nums[i];
+        	j++;
+        	i++;
+        }
+        for (int k = nums.length - zeros; k < nums.length; k++) {
+        	nums[k] = 0;
+        }
+    }
+	
+	public static int[] generateIntArr(int n) {
+		int[] arr = new int[n];
+		Random rnd = new Random();
+		for (int i = 0; i < n; i++) {
+			arr[i] = rnd.nextInt(10);
+		}
+		return arr;
+	}
+	
+	public static void printArr(int[] arr) {
+		for (int i = 0; i < arr.length; i++) System.out.print(arr[i] + " ");
+		System.out.println();
+	}
+	
+	public static int[] replaceElements(int[] arr) {
+		if (arr.length == 0) return arr;
+		for (int i = 0; i < arr.length; i++) {
+			int max = -1;
+			for (int j = i + 1; j < arr.length; j++) {
+				if (arr[j] > max) max = arr[j];
+			}
+			arr[i] = max;
+		}
+        return arr;
+    }
 	
 	// Generate an array given a size, display the generated array
 	public static int[] generateArray(int size) { 
