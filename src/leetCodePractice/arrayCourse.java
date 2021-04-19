@@ -9,6 +9,32 @@ public class arrayCourse {
 		printArr(testArr);
 	}
 	
+	public static int removeElement(int[] nums, int val) {
+        int occurance = 0;
+        int len = nums.length;
+        for (int i = 0; i < len; i ++) {
+            nums[i - occurance] = nums[i];
+            if (nums[i] == val) {
+                occurance ++;
+            }
+        }
+        return len - occurance;
+    }
+	
+	public static int[] sortArrayByParity(int[] A) {
+        int e = 0;
+        int temp;
+        for (int i = 0; i < A.length; i++) {
+            if (A[i] % 2 == 0) {
+                temp = A[i];
+                A[i] = A[e];
+                A[e] = temp;
+                e++;
+            }
+        }
+        return A;
+    }
+	
 	public static void moveZeroes(int[] nums) {
 		int zeros = 0;
 		for (int num:nums) {
